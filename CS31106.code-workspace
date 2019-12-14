@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"libintl.h": "c",
+			"input.h": "c",
+			"*.tcc": "c",
+			"unordered_map": "c",
+			"fstream": "c",
+			"istream": "c",
+			"ostream": "c",
+			"sstream": "c",
+			"menu.h": "c",
+			"algorithm": "c"
+		}
+	}
+}

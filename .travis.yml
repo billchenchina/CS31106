@@ -1,0 +1,9 @@
+language: c
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports
+    packages:
+      - cmake
+      - cmake-data
+script: cmake . && cmake --build . --config Debug --target CS31106 -- -j 4
