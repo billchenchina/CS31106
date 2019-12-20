@@ -15,7 +15,9 @@
 			"ostream": "c",
 			"sstream": "c",
 			"menu.h": "c",
-			"algorithm": "c"
+			"algorithm": "c",
+			"stdlib.h": "c",
+			"csv.h": "c"
 		}
 	}
 }

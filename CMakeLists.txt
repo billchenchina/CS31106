@@ -7,6 +7,9 @@ enable_testing()
 
 aux_source_directory(. DIR_SRCS)
 add_subdirectory(utils)
+add_subdirectory(include)
+
+include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 
 add_executable(CS31106 ${DIR_SRCS})
 
@@ -14,4 +17,4 @@ set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 
-target_link_libraries(CS31106 Utils)
+target_link_libraries(CS31106 Utils Include)
