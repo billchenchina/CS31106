@@ -85,10 +85,10 @@ int loop(student_t *student, int *N)
         }
         if (choice == 0)
         {
-            printf(_("Sure to exit?(Press Y to confirm exit.\n"));
+            printf(_("Sure to exit?(Press Y to confirm exit.)\n"));
             char s[200];
             fgets(s, 200, stdin);
-            if (strlen(s) == 1 && (s[0] == 'Y' || s[0] == 'y'))
+            if (s[0] == 'Y' || s[0] == 'y')
             {
                 exit(0);
             }
