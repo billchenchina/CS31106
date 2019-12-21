@@ -3,8 +3,6 @@
 #include <libintl.h>
 #include <stdlib.h>
 
-#include <csv.h>
-
 #include "student.h"
 #include "menu.h"
 #include "utils/input.h"
@@ -55,11 +53,13 @@ int init(student_t *student, unsigned int *N)
     }
     else if (selection == 1)
     {
+
     }
     else
         return -1;
     return 0;
 }
+
 
 int loop(student_t *student, int *N)
 {
@@ -83,18 +83,40 @@ int loop(student_t *student, int *N)
             printf(_("You have input a wrong choice, Choice is expected from 0 to 12\nPlease input again.\n"));
             return -1;
         }
-        if (choice == 0)
+        switch (choice)
         {
-            printf(_("Sure to exit?(Press Y to confirm exit.)\n"));
-            char s[200];
-            fgets(s, 200, stdin);
-            if (s[0] == 'Y' || s[0] == 'y')
-            {
-                exit(0);
-            }
-            else
-                return 0;
+        case 0:
+            return program_exit(student);
+            break;
+        // Write to a file
+        case 11:
+
+            break;
+        // Read from a file
+        case 12:
+            break;
+        default:
+            break;
         }
     }
     return 0;
+}
+
+
+int program_exit(student_t *student)
+{
+
+    printf(_("Sure to exit?(Press Y to confirm exit.)\n"));
+    char s[200];
+    fgets(s, 200, stdin);
+    if (s[0] == 'Y' || s[0] == 'y')
+    {
+        printf(_("Cleaning up memory...\n"));
+        if (student != NULL)
+            free(student);
+        printf(_("Exiting!\n"));
+        return -1;
+    }
+    else
+        return 0;
 }

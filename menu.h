@@ -11,4 +11,6 @@ int init(student_t *student, unsigned int *N);
 
 
 void print_menu();
+
+int program_exit(student_t *student);
 #endif
