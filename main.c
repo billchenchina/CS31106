@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 #include <locale.h>
 #include <libintl.h>
 #include "student.h"
@@ -10,6 +12,11 @@
 #pragma comment(lib,"winmm.lib")
 #endif
 
+#ifndef __linux__
+#define clear() system("cls")
+#else
+#define clear() system("clear")
+#endif
 
 #define _(STRING) gettext(STRING)
 
@@ -28,10 +35,16 @@ int main()
     for (;;)
     {
         ret = loop(&student, &N);
+
         if(ret != 0)
         {
             printf(_("Unknown error\n"));
             return ret;
+        } else {
+            printf(_("Done. Please press Enter to continue...\n"));
+            char s[100];
+            fgets(s, 100, stdin);
+            clear();
         }
     }
 }

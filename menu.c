@@ -7,6 +7,12 @@
 #include "menu.h"
 #include "utils/input.h"
 
+#ifndef __linux__
+#define clear() system("cls")
+#else
+#define clear() system("clear")
+#endif
+
 #define _(STRING) gettext(STRING)
 void print_menu()
 {
@@ -39,6 +45,7 @@ int init(student_t **student, unsigned int *N)
         *student = NULL;
     }
     int selection = readint();
+    clear();
     if (selection == 0)
     {
         printf(_("Input the amount of student(s)\n"));
@@ -91,6 +98,8 @@ int loop(student_t **student, int *N)
             printf(_("You have input a wrong choice, Choice is expected from 0 to 12\nPlease input again.\n"));
             return -1;
         }
+        clear();
+
         int ret = 0;
         switch (choice)
         {
@@ -223,6 +232,7 @@ int read_from_file(student_t **student, int *N)
         }
         break;
     }
+    clear();
     FILE *f = fopen(s, "r");
     if (f == NULL)
     {
@@ -360,7 +370,7 @@ int search_by_number(student_t *student, int N)
 }
 int search_by_name(student_t *student, int N)
 {
-    printf(_("Please input the student's name:\n"));
+    printf(_("Please input the student's name(support fuzzy search):\n"));
     char name[100];
     fgets(name, 100, stdin);
     int len = strlen(name);
@@ -374,6 +384,25 @@ int search_by_name(student_t *student, int N)
     {
         if (strcmp(name, student[i].name) == 0)
         {
+            printf(_("Student %s's rank is %d\n"),
+                   student[i].name, i + 1);
+            printf(_("\tMath: %d\n\tChinese: %d\n\tEnglish: %d\n"),
+                   student[i].math_grade,
+                   student[i].chinese_grade,
+                   student[i].english_grade);
+            printf(_("Total: %d\n"),
+                   student[i].math_grade +
+                       student[i].chinese_grade +
+                       student[i].english_grade);
+            return 0;
+        }
+    }
+    for (int i = 0; i < N; ++i)
+    {
+        if (strstr(student[i].name, name) != NULL || strstr(name, student[i].name) != NULL
+        )
+        {
+            printf(_("We couldn't find the exact student.\nMaybe you want %s\n"), student[i].name);
             printf(_("Student %s's rank is %d\n"),
                    student[i].name, i + 1);
             printf(_("\tMath: %d\n\tChinese: %d\n\tEnglish: %d\n"),
@@ -412,11 +441,16 @@ int stats(student_t *student, int N)
                 f++;
         }
         printf(_("Statistics for Math:\n"));
-        if(a)printf(_("A(90-100): %d\t%f%%\n"), a, 100.0 * a / N);
-        if(b)printf(_("B(80-89): %d\t%f%%\n"), b, 100.0 * b / N);
-        if(c)printf(_("C(70-79): %d\t%f%%\n"), c, 100.0 * c / N);
-        if(d)printf(_("D(60-69): %d\t%f%%\n"), d, 100.0 * d / N);
-        if(f)printf(_("F(0-59): %d\t%f%%\n"), f, 100.0 * f / N);
+        if (a)
+            printf(_("A(90-100): %d\t%f%%\n"), a, 100.0 * a / N);
+        if (b)
+            printf(_("B(80-89): %d\t%f%%\n"), b, 100.0 * b / N);
+        if (c)
+            printf(_("C(70-79): %d\t%f%%\n"), c, 100.0 * c / N);
+        if (d)
+            printf(_("D(60-69): %d\t%f%%\n"), d, 100.0 * d / N);
+        if (f)
+            printf(_("F(0-59): %d\t%f%%\n"), f, 100.0 * f / N);
     }
     {
         int a = 0, b = 0, c = 0, d = 0, f = 0;
@@ -438,11 +472,16 @@ int stats(student_t *student, int N)
                 f++;
         }
         printf(_("Statistics for Chinese:\n"));
-        if(a)printf(_("A(90-100): %d\t%f%%\n"), a, 100.0 * a / N);
-        if(b)printf(_("B(80-89): %d\t%f%%\n"), b, 100.0 * b / N);
-        if(c)printf(_("C(70-79): %d\t%f%%\n"), c, 100.0 * c / N);
-        if(d)printf(_("D(60-69): %d\t%f%%\n"), d, 100.0 * d / N);
-        if(f)printf(_("F(0-59): %d\t%f%%\n"), f, 100.0 * f / N);
+        if (a)
+            printf(_("A(90-100): %d\t%f%%\n"), a, 100.0 * a / N);
+        if (b)
+            printf(_("B(80-89): %d\t%f%%\n"), b, 100.0 * b / N);
+        if (c)
+            printf(_("C(70-79): %d\t%f%%\n"), c, 100.0 * c / N);
+        if (d)
+            printf(_("D(60-69): %d\t%f%%\n"), d, 100.0 * d / N);
+        if (f)
+            printf(_("F(0-59): %d\t%f%%\n"), f, 100.0 * f / N);
     }
 
     {
@@ -465,11 +504,16 @@ int stats(student_t *student, int N)
                 f++;
         }
         printf(_("Statistics for English:\n"));
-        if(a)printf(_("A(90-100): %d\t%f%%\n"), a, 100.0 * a / N);
-        if(b)printf(_("B(80-89): %d\t%f%%\n"), b, 100.0 * b / N);
-        if(c)printf(_("C(70-79): %d\t%f%%\n"), c, 100.0 * c / N);
-        if(d)printf(_("D(60-69): %d\t%f%%\n"), d, 100.0 * d / N);
-        if(f)printf(_("F(0-59): %d\t%f%%\n"), f, 100.0 * f / N);
+        if (a)
+            printf(_("A(90-100): %d\t%f%%\n"), a, 100.0 * a / N);
+        if (b)
+            printf(_("B(80-89): %d\t%f%%\n"), b, 100.0 * b / N);
+        if (c)
+            printf(_("C(70-79): %d\t%f%%\n"), c, 100.0 * c / N);
+        if (d)
+            printf(_("D(60-69): %d\t%f%%\n"), d, 100.0 * d / N);
+        if (f)
+            printf(_("F(0-59): %d\t%f%%\n"), f, 100.0 * f / N);
     }
 
     return 0;
