@@ -30,7 +30,7 @@ int main()
     mciSendString("play 1.wav",NULL,0,NULL);
 #endif
     student_t *student = NULL;
-    unsigned int N;
+    int N;
     int ret;
     for (;;)
     {

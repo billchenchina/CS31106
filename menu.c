@@ -35,7 +35,7 @@ void print_menu()
     return;
 }
 
-int init(student_t **student, unsigned int *N)
+int init(student_t **student, int *N)
 {
     printf(_("**Student Management system**\n"));
     printf(_("Create a new profile(0) or read from existing file(1)\n"));
@@ -51,7 +51,7 @@ int init(student_t **student, unsigned int *N)
         printf(_("Input the amount of student(s)\n"));
         (*N) = readuint();
         (*student) = (student_t *)malloc((*N) * sizeof(student_t));
-        for (unsigned int i = 0; i < (*N); ++i)
+        for (int i = 0; i < (*N); ++i)
         {
             printf(_("Please input student %u's name\n"), i + 1);
             fgets((*student)[i].name, 40, stdin);
@@ -100,7 +100,6 @@ int loop(student_t **student, int *N)
         }
         clear();
 
-        int ret = 0;
         switch (choice)
         {
         case 0:
@@ -206,7 +205,7 @@ int write_to_file(student_t *student, int N)
     FILE *f = fopen(s, "w");
     if (f == NULL)
     {
-        printf(_("Fail to open file %s"), s);
+        printf(_("Fail to open file %s\n"), s);
         return -1;
     }
     return csv_write_file(f, student, N);
@@ -258,7 +257,7 @@ void list_record(student_t *student, int N)
 
 int input_record(student_t **student, int *N)
 {
-    init(student, N);
+    return init(student, N);
 }
 int calculate_by_course(student_t *student, int N)
 {
@@ -298,23 +297,27 @@ int calculate_by_student(student_t *student, int N)
 int sort_by_grade_desc(student_t *student, int N)
 {
     qsort(student, N, sizeof(student_t), cmp_by_grade_desc);
+    list_record(student, N);
     return 0;
 }
 
 int sort_by_grade_asc(student_t *student, int N)
 {
     qsort(student, N, sizeof(student_t), cmp_by_grade_desc);
+    list_record(student, N);
     return 0;
 }
 int sort_by_id(student_t *student, int N)
 {
     qsort(student, N, sizeof(student_t), cmp_by_id);
+    list_record(student, N);
     return 0;
 }
 
 int sort_by_name(student_t *student, int N)
 {
     qsort(student, N, sizeof(student_t), cmp_by_name);
+    list_record(student, N);
     return 0;
 }
 int cmp_by_grade_desc(const void *s1, const void *s2)

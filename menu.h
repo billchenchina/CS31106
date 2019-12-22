@@ -7,7 +7,7 @@ int loop(student_t **, int *);
 
 // returns 0 if ok
 // returns -1 if input invalid
-int init(student_t **student, unsigned int *N);
+int init(student_t **student, int *N);
 
 
 void print_menu();
