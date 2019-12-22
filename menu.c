@@ -88,14 +88,17 @@ int loop(student_t **student, int *N)
         case 0:
             return program_exit(*student);
             break;
+        case 10:
+            list_record(*student, *N);
+            break;
         // Write to a file
         case 11:
             return write_to_file(*student, *N);
             break;
             // Read from a file
-            //         case 12:
-
-            // break;
+        case 12:
+            return read_from_file(student, N);
+            break;
         default:
             printf(_("Not implemented.\n"));
             break;
@@ -152,7 +155,7 @@ int write_to_file(student_t *student, int N)
     return csv_write_file(f, student, N);
 }
 
-int read_from_file(student_t *student, int *N)
+int read_from_file(student_t **student, int *N)
 {
     char s[100];
     for (;;)
@@ -189,6 +192,23 @@ int read_from_file(student_t *student, int *N)
         }
         break;
     }
-    printf(_("Not implemented.\n"));
     FILE *f = fopen(s, "r");
+    if (f == NULL)
+    {
+        printf(_("Couldn't open file %s"), s);
+        return -1;
+    }
+    return csv_read_file(f, student, N);
+}
+
+void list_record(student_t *student, int N) {
+    for(int i = 0; i < N; ++i) {
+        printf(_("User #%d. %s\n"), i + 1, student[i].name);
+        printf(_("Math: %d\tChinese: %d\tEnglish: %d\t\n"), 
+            student[i].math_grade,
+            student[i].chinese_grade,
+            student[i].english_grade
+        );
+    }
+    return;
 }

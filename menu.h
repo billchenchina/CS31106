@@ -14,5 +14,7 @@ void print_menu();
 
 int program_exit(student_t *student);
 int write_to_file(student_t *student, int N);
-int read_from_file(student_t *student, int *N);
+int read_from_file(student_t **student, int *N);
+
+void list_record(student_t *student, int N);
 #endif

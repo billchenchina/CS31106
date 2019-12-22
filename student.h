@@ -12,5 +12,6 @@ typedef struct STUDENT
 short get_sum_score(student_t stu);
 
 int csv_write_file(FILE* f, student_t *student, int N);
+int csv_read_file(FILE *f, student_t **student, int *N);
 
 #endif
