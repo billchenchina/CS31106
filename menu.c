@@ -98,7 +98,7 @@ int loop(student_t **student, int *N)
         int choice = readint();
         if (choice < 0 || choice > 13)
         {
-            printf(_("You have input a wrong choice, Choice is expected from 0 to 12\nPlease input again.\n"));
+            printf(_("You have input a wrong choice, Choice is expected from 0 to 13\nPlease input again.\n"));
             return -1;
         }
         clear();
@@ -355,7 +355,7 @@ int search_by_number(student_t *student, int N)
     printf(_("Please input the student's number:\n"));
     int id;
     id = readuint();
-    sort_by_grade_asc(student, N);
+    qsort(student, N, sizeof(student_t), cmp_by_grade_desc);
     for (int i = 0; i < N; ++i)
     {
         if (student[i].id == id)
@@ -373,7 +373,7 @@ int search_by_number(student_t *student, int N)
             return 0;
         }
     }
-    printf(_("Couldn't find student %d"), id);
+    printf(_("Couldn't find student %d\n"), id);
     return 0;
 }
 int search_by_name(student_t *student, int N)
@@ -387,7 +387,7 @@ int search_by_name(student_t *student, int N)
         name[len - 1] = '\0';
         len--;
     }
-    sort_by_grade_asc(student, N);
+    qsort(student, N, sizeof(student_t), cmp_by_grade_desc);
     for (int i = 0; i < N; ++i)
     {
         if (strcmp(name, student[i].name) == 0)
@@ -423,7 +423,7 @@ int search_by_name(student_t *student, int N)
             return 0;
         }
     }
-    printf(_("Couldn't find student %s"), name);
+    printf(_("Couldn't find student %s\n"), name);
     return 0;
 }
 int stats(student_t *student, int N)

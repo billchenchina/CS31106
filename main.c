@@ -23,8 +23,8 @@
 int main()
 {
     setlocale(LC_ALL, "");
-    bindtextdomain("CS31106", "translate");
-    textdomain("CS31106");
+    bindtextdomain("cs31106", "translate");
+    textdomain("cs31106");
 #ifndef __linux__
     mciSendString("open 1.wav",NULL,0,NULL);
     mciSendString("play 1.wav",NULL,0,NULL);
