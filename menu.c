@@ -99,7 +99,7 @@ int loop(student_t **student, int *N)
         if (choice < 0 || choice > 13)
         {
             printf(_("You have input a wrong choice, Choice is expected from 0 to 13\nPlease input again.\n"));
-            return -1;
+            return 0;
         }
         clear();
 
