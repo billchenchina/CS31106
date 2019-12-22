@@ -16,22 +16,22 @@
 #define _(STRING) gettext(STRING)
 void print_menu()
 {
-    printf(_("**Student Management system**\n"));
-    printf(_("%d. Input record\n"), 1);
-    printf(_("%d. Calculate total and average score of every course\n"), 2);
-    printf(_("%d. Calculate total and average score of every student\n"), 3);
-    printf(_("%d. Sort in descending order by total score of every student\n"), 4);
-    printf(_("%d. Sort in ascending order by total score of every student\n"), 5);
-    printf(_("%d. Sort in ascending order by number\n"), 6);
-    printf(_("%d. Sort in dictionary order by name\n"), 7);
-    printf(_("%d. Search by number\n"), 8);
-    printf(_("%d. Search by name\n"), 9);
-    printf(_("%d. Statistic analysis for every course\n"), 10);
-    printf(_("%d. List record\n"), 11);
-    printf(_("%d. Write to a file\n"), 12);
-    printf(_("%d. Read from a file\n"), 13);
-    printf(_("%d. Exit\n"), 0);
-    printf(_("Please enter your choice:\n"));
+    printf(_(" =====================Student Grade Management System V6.0==========================\n"));
+    printf(_(" |              %d.Input record；                                                   |\n"), 1);
+    printf(_(" |              %d.Calculate total and average score of every course；              |\n"), 2);
+    printf(_(" |              %d.Calculate total and average score of every student；             |\n"), 3);
+    printf(_(" |              %d.Sort in descending order by total score of every student；       |\n"), 4);
+    printf(_(" |              %d.Sort in ascending order by total score of every student；        |\n"), 5);
+    printf(_(" |              %d.Sort in ascending order by number；                              |\n"), 6);
+    printf(_(" |              %d.Sort in dictionary order by name；                               |\n"), 7);
+    printf(_(" |              %d.Search by number；                                               |\n"), 8);
+    printf(_(" |              %d.Search by name；                                                 |\n"), 9);
+    printf(_(" |              %d.Statistic analysis for every course；                           |\n"), 10);
+    printf(_(" |              %d.List record；                                                   |\n"), 11);
+    printf(_(" |              %d.Write to a file；                                               |\n"), 12);
+    printf(_(" |              %d.Read from a file；                                              |\n"), 13);
+    printf(_(" |              %d.Exit；                                                           |\n"), 0);
+    printf(_(" ==========================  Please enter a number   ===============================\n"));
     return;
 }
 
@@ -175,7 +175,8 @@ int program_exit(student_t *student)
         printf(_("Exiting!\n"));
         exit(EXIT_SUCCESS);
     }
-    else {
+    else
+    {
         printf(_("Not exiting.\n"));
         return 0;
     }
@@ -403,8 +404,7 @@ int search_by_name(student_t *student, int N)
     }
     for (int i = 0; i < N; ++i)
     {
-        if (strstr(student[i].name, name) != NULL || strstr(name, student[i].name) != NULL
-        )
+        if (strstr(student[i].name, name) != NULL || strstr(name, student[i].name) != NULL)
         {
             printf(_("We couldn't find the exact student.\nMaybe you want %s\n"), student[i].name);
             printf(_("Student %s's rank is %d\n"),
