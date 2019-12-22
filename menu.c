@@ -28,7 +28,7 @@ void print_menu()
     return;
 }
 
-int init(student_t *student, unsigned int *N)
+int init(student_t **student, unsigned int *N)
 {
     printf(_("**Student Management system**\n"));
     printf(_("Create a new profile(0) or read from existing file(1)\n"));
@@ -37,31 +37,30 @@ int init(student_t *student, unsigned int *N)
     {
         printf(_("Input the amount of student(s)\n"));
         (*N) = readuint();
-        student = (student_t *)malloc((*N) * sizeof(student_t));
+        (*student) = (student_t *)malloc((*N) * sizeof(student_t));
         for (unsigned int i = 0; i < (*N); ++i)
         {
             printf(_("Please input student %u's name\n"), i + 1);
-            fgets(student[i].name, 40, stdin);
+            fgets((*student)[i].name, 40, stdin);
+            (*student)[i].name[strlen((*student)[i].name)-1] = '\0';
             printf(_("Please input the math score of student %u\n"), i + 1);
-            student[i].math_grade = readuint();
+            (*student)[i].math_grade = readuint();
             printf(_("Please input the chinese score of student %u\n"), i + 1);
-            student[i].chinese_grade = readuint();
+            (*student)[i].chinese_grade = readuint();
             printf(_("Please input the english score of student %u\n"), i + 1);
-            student[i].english_grade = readuint();
+            (*student)[i].english_grade = readuint();
         }
         printf(_("Initialize complete.\n"));
     }
     else if (selection == 1)
     {
-
     }
     else
         return -1;
     return 0;
 }
 
-
-int loop(student_t *student, int *N)
+int loop(student_t **student, int *N)
 {
     static int inited = 0;
     if (inited == 0)
@@ -86,11 +85,11 @@ int loop(student_t *student, int *N)
         switch (choice)
         {
         case 0:
-            return program_exit(student);
+            return program_exit(*student);
             break;
         // Write to a file
         case 11:
-
+            write_to_file(*student, *N);
             break;
         // Read from a file
         case 12:
@@ -101,7 +100,6 @@ int loop(student_t *student, int *N)
     }
     return 0;
 }
-
 
 int program_exit(student_t *student)
 {
@@ -119,4 +117,33 @@ int program_exit(student_t *student)
     }
     else
         return 0;
+}
+
+int write_to_file(student_t *student, int N)
+{
+    char s[100];
+    for (;;)
+    {
+        printf(_("Please input a location to save.\nThe file name should ends with .csv:\n"));
+        fgets(s, 100, stdin);
+        int len = strlen(s);
+        if(s[len-1] == '\n') {
+            s[len-1] = '\0';
+            len--;
+        }
+        if (len < 4 || s[len - 4] != '.' || s[len - 3] != 'c' ||
+                        s[len - 2] != 's' || s[len - 1] != 'v')
+        {
+            printf(_("Input invalid. Please try again.\n"));
+            continue;
+        }
+        break;
+    }
+    FILE *f = fopen(s, "w");
+    if (f == NULL)
+    {
+        printf(_("Fail to open file %s"), s);
+        return -1;
+    }
+    return csv_write_file(f, student, N);
 }

@@ -17,7 +17,13 @@
 			"menu.h": "c",
 			"algorithm": "c",
 			"stdlib.h": "c",
-			"csv.h": "c"
+			"csv.h": "c",
+			"student.h": "c",
+			"stdio.h": "c",
+			"exception": "c",
+			"iosfwd": "c",
+			"new": "c",
+			"streambuf": "c"
 		}
 	}
 }

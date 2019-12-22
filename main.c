@@ -14,7 +14,7 @@ int main()
     unsigned int N;
     for (;;)
     {
-        if (loop(student, &N) != 0)
+        if (loop(&student, &N) != 0)
             break;
     }
 }

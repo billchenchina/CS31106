@@ -1,2 +1,5 @@
 build/
 CMakeFiles/
+*.csv
+*.pot
+*.po
