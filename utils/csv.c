@@ -26,7 +26,9 @@ char *csv_escape(char *ori)
         + 1                            // final double quote
         + 1));                         // '\0'
     }
-    
+    if(ret == NULL) {
+        exit(-1);
+    }
     int j = 0;
     if(escape_add != 0) {
         ret[j] = '"';

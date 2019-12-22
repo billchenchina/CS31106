@@ -17,20 +17,20 @@
 void print_menu()
 {
     printf(_(" =====================Student Grade Management System V6.0==========================\n"));
-    printf(_(" |              %d.Input record；                                                   |\n"), 1);
-    printf(_(" |              %d.Calculate total and average score of every course；              |\n"), 2);
-    printf(_(" |              %d.Calculate total and average score of every student；             |\n"), 3);
-    printf(_(" |              %d.Sort in descending order by total score of every student；       |\n"), 4);
-    printf(_(" |              %d.Sort in ascending order by total score of every student；        |\n"), 5);
-    printf(_(" |              %d.Sort in ascending order by number；                              |\n"), 6);
-    printf(_(" |              %d.Sort in dictionary order by name；                               |\n"), 7);
-    printf(_(" |              %d.Search by number；                                               |\n"), 8);
-    printf(_(" |              %d.Search by name；                                                 |\n"), 9);
-    printf(_(" |              %d.Statistic analysis for every course；                           |\n"), 10);
-    printf(_(" |              %d.List record；                                                   |\n"), 11);
-    printf(_(" |              %d.Write to a file；                                               |\n"), 12);
-    printf(_(" |              %d.Read from a file；                                              |\n"), 13);
-    printf(_(" |              %d.Exit；                                                           |\n"), 0);
+    printf(_(" |              %d.Input record                                                     |\n"), 1);
+    printf(_(" |              %d.Calculate total and average score of every course                |\n"), 2);
+    printf(_(" |              %d.Calculate total and average score of every student               |\n"), 3);
+    printf(_(" |              %d.Sort in descending order by total score of every student         |\n"), 4);
+    printf(_(" |              %d.Sort in ascending order by total score of every student          |\n"), 5);
+    printf(_(" |              %d.Sort in ascending order by number                                |\n"), 6);
+    printf(_(" |              %d.Sort in dictionary order by name                                 |\n"), 7);
+    printf(_(" |              %d.Search by number                                                 |\n"), 8);
+    printf(_(" |              %d.Search by name                                                   |\n"), 9);
+    printf(_(" |              %d.Statistic analysis for every course                             |\n"), 10);
+    printf(_(" |              %d.List record                                                     |\n"), 11);
+    printf(_(" |              %d.Write to a file                                                 |\n"), 12);
+    printf(_(" |              %d.Read from a file                                                |\n"), 13);
+    printf(_(" |              %d.Exit                                                             |\n"), 0);
     printf(_(" ==========================  Please enter a number   ===============================\n"));
     return;
 }
@@ -51,13 +51,16 @@ int init(student_t **student, int *N)
         printf(_("Input the amount of student(s)\n"));
         (*N) = readuint();
         (*student) = (student_t *)malloc((*N) * sizeof(student_t));
+        if(*student == NULL) {
+            return -1;
+        }
         for (int i = 0; i < (*N); ++i)
         {
             printf(_("Please input student %u's name\n"), i + 1);
             fgets((*student)[i].name, 40, stdin);
             (*student)[i].name[strlen((*student)[i].name) - 1] = '\0';
             printf(_("Please input student %u's id\n"), i + 1);
-            (*student)[i].id = readint();
+            (*student)[i].id = readuint();
             printf(_("Please input the math score of student %u\n"), i + 1);
             (*student)[i].math_grade = readuint();
             printf(_("Please input the chinese score of student %u\n"), i + 1);
@@ -351,7 +354,7 @@ int search_by_number(student_t *student, int N)
 {
     printf(_("Please input the student's number:\n"));
     int id;
-    id = readint();
+    id = readuint();
     sort_by_grade_asc(student, N);
     for (int i = 0; i < N; ++i)
     {

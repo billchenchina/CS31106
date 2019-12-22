@@ -4,3 +4,4 @@ CMakeFiles/
 *.pot
 *.po
 .idea/
+translate/zh_CN/LC_MESSAGES/CS31106.mo
