@@ -23,6 +23,6 @@ int csv_write_file(FILE *f, student_t *student, int N)
             return ret;
         free(escaped_data);
     }
-    fclose(f);
-    return 0;
+    ret = fclose(f);
+    return ret;
 }

@@ -12,9 +12,14 @@ int main()
     textdomain("CS31106");
     student_t *student = NULL;
     unsigned int N;
+    int ret;
     for (;;)
     {
-        if (loop(&student, &N) != 0)
-            break;
+        ret = loop(&student, &N);
+        if(ret != 0)
+        {
+            printf(_("Unknown error\n"));
+            return ret;
+        }
     }
 }

@@ -28,6 +28,10 @@ char *csv_escape(char *ori)
     }
     
     int j = 0;
+    if(escape_add != 0) {
+        ret[j] = '"';
+        j++;
+    }
     for (int i = 0; i < len; ++i, ++j)
     {
         if (ori[i] == '\r' || ori[i] == '\n' ||
@@ -37,6 +41,10 @@ char *csv_escape(char *ori)
             j++;
         }
         ret[j] = ori[i];
+    }
+    if(escape_add != 0) {
+        ret[j] = '"';
+        j++;
     }
     ret[j] = '\0';
     return ret;

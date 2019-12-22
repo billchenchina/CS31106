@@ -42,7 +42,7 @@ int init(student_t **student, unsigned int *N)
         {
             printf(_("Please input student %u's name\n"), i + 1);
             fgets((*student)[i].name, 40, stdin);
-            (*student)[i].name[strlen((*student)[i].name)-1] = '\0';
+            (*student)[i].name[strlen((*student)[i].name) - 1] = '\0';
             printf(_("Please input the math score of student %u\n"), i + 1);
             (*student)[i].math_grade = readuint();
             printf(_("Please input the chinese score of student %u\n"), i + 1);
@@ -82,6 +82,7 @@ int loop(student_t **student, int *N)
             printf(_("You have input a wrong choice, Choice is expected from 0 to 12\nPlease input again.\n"));
             return -1;
         }
+        int ret = 0;
         switch (choice)
         {
         case 0:
@@ -89,12 +90,14 @@ int loop(student_t **student, int *N)
             break;
         // Write to a file
         case 11:
-            write_to_file(*student, *N);
+            return write_to_file(*student, *N);
             break;
-        // Read from a file
-        case 12:
-            break;
+            // Read from a file
+            //         case 12:
+
+            // break;
         default:
+            printf(_("Not implemented.\n"));
             break;
         }
     }
@@ -113,7 +116,7 @@ int program_exit(student_t *student)
         if (student != NULL)
             free(student);
         printf(_("Exiting!\n"));
-        return -1;
+        exit(EXIT_SUCCESS);
     }
     else
         return 0;
@@ -127,12 +130,13 @@ int write_to_file(student_t *student, int N)
         printf(_("Please input a location to save.\nThe file name should ends with .csv:\n"));
         fgets(s, 100, stdin);
         int len = strlen(s);
-        if(s[len-1] == '\n') {
-            s[len-1] = '\0';
+        if (s[len - 1] == '\n')
+        {
+            s[len - 1] = '\0';
             len--;
         }
         if (len < 4 || s[len - 4] != '.' || s[len - 3] != 'c' ||
-                        s[len - 2] != 's' || s[len - 1] != 'v')
+            s[len - 2] != 's' || s[len - 1] != 'v')
         {
             printf(_("Input invalid. Please try again.\n"));
             continue;
@@ -146,4 +150,45 @@ int write_to_file(student_t *student, int N)
         return -1;
     }
     return csv_write_file(f, student, N);
+}
+
+int read_from_file(student_t *student, int *N)
+{
+    char s[100];
+    for (;;)
+    {
+        printf(_("Doing so will clear all current data, confirm to proceed?(y/N)\n"));
+        fgets(s, 100, stdin);
+        int len = strlen(s);
+        if (s[len - 1] == '\n')
+        {
+            s[len - 1] = '\0';
+            len--;
+        }
+        if (len == 1 && (s[0] == 'y' || s[0] == 'Y'))
+        {
+            break;
+        }
+        printf(_("Input invalid. Please try again.\n"));
+    }
+    for (;;)
+    {
+        printf(_("Please input a location to save.\nThe file name should ends with .csv:\n"));
+        fgets(s, 100, stdin);
+        int len = strlen(s);
+        if (s[len - 1] == '\n')
+        {
+            s[len - 1] = '\0';
+            len--;
+        }
+        if (len < 4 || s[len - 4] != '.' || s[len - 3] != 'c' ||
+            s[len - 2] != 's' || s[len - 1] != 'v')
+        {
+            printf(_("Input invalid. Please try again.\n"));
+            continue;
+        }
+        break;
+    }
+    printf(_("Not implemented.\n"));
+    FILE *f = fopen(s, "r");
 }

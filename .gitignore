@@ -3,3 +3,4 @@ CMakeFiles/
 *.csv
 *.pot
 *.po
+.idea/
