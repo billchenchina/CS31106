@@ -7,6 +7,7 @@ typedef struct STUDENT
     short math_grade;
     short chinese_grade;
     short english_grade;
+    int id;
 } student_t;
 
 short get_sum_score(student_t stu);

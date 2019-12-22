@@ -18,7 +18,7 @@ int csv_write_file(FILE *f, student_t *student, int N)
     for (int i = 0; i < N; ++i)
     {
         char *escaped_data = csv_escape(student[i].name);
-        ret = fprintf(f, "%s,%d,%d,%d\n", escaped_data,
+        ret = fprintf(f, "%s,%d,%d,%d,%d\n", escaped_data, student[i].id,
                       student[i].math_grade, student[i].chinese_grade,
                       student[i].english_grade);
         if (ret < 0)
@@ -128,6 +128,19 @@ int csv_read_file(FILE *f, student_t **student, int *N)
         begin = end;
         while (s[end] != ',')
             end++;
+        int id = 0;
+        for (int i = begin; i < end; ++i)
+        {
+            if (isdigit(s[i]))
+            {
+                id = id * 10 + s[i] - '0';
+            }
+        }
+
+        end++;
+        begin = end;
+        while (s[end] != ',')
+            end++;
         int math = 0;
         for (int i = begin; i < end; ++i)
         {
@@ -166,6 +179,7 @@ int csv_read_file(FILE *f, student_t **student, int *N)
         for (int i = 0; i < len; ++i)
             (*student)[*N - 1].name[i] = name[i];
         (*student)[*N - 1].name[len] = '\0';
+        (*student)[*N - 1].id = id;
         (*student)[*N - 1].math_grade = math;
         (*student)[*N - 1].chinese_grade = chinese;
         (*student)[*N - 1].english_grade = english;
