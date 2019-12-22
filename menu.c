@@ -105,7 +105,6 @@ int loop(student_t **student, int *N)
         {
         case 0:
             return program_exit(*student);
-            break;
         // Input record
         case 1:
             return input_record(student, N);
@@ -177,8 +176,10 @@ int program_exit(student_t *student)
         printf(_("Exiting!\n"));
         exit(EXIT_SUCCESS);
     }
-    else
+    else {
+        printf(_("Not exiting.\n"));
         return 0;
+    }
 }
 
 int write_to_file(student_t *student, int N)
@@ -236,7 +237,7 @@ int read_from_file(student_t **student, int *N)
     FILE *f = fopen(s, "r");
     if (f == NULL)
     {
-        printf(_("Couldn't open file %s"), s);
+        printf(_("Couldn't open file %s\n"), s);
         return -1;
     }
     return csv_read_file(f, student, N);
