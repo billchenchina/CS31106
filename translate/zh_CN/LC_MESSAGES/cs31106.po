@@ -1,21 +1,19 @@
-# CS31106
-# Copyright (C) 2019 billchenchina
-# This file is distributed under the same license as the PACKAGE package.
-# billchenchina <billchenchina2001@gmail.com>, 2019.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.0.0\n"
+"Project-Id-Version: cs31106\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 03:02+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: billchenchina <billchenchina2001@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2019-12-24 12:24+0800\n"
+"PO-Revision-Date: 2019-12-24 04:34\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: cs31106\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /master/translate/cs31106.pot\n"
 
 #: utils/input.c:20
 #, c-format
@@ -29,147 +27,83 @@ msgstr "无法重分配空间。\n"
 
 #: menu.c:19
 #, c-format
-msgid ""
-" =====================Student Grade Management System "
-"V6.0==========================\n"
-msgstr ""
-" ================================学生信息管理系统 "
-"V6.0==============================\n"
+msgid " =====================Student Grade Management System V6.0==========================\n"
+msgstr " ================================学生信息管理系统 V6.0==============================\n"
 
 #: menu.c:20
 #, c-format
-msgid ""
-" |              %d.Input "
-"record                                                     |\n"
-msgstr ""
-" |              %d.录入信息 "
-"                                                        |\n"
+msgid " |              %d.Input record                                                     |\n"
+msgstr " |              %d.录入信息                                                         |\n"
 
 #: menu.c:21
 #, c-format
-msgid ""
-" |              %d.Calculate total and average score of every "
-"course                |\n"
-msgstr ""
-" |              %d.计算每门课程的总分和平均分 "
-"                                      |\n"
+msgid " |              %d.Calculate total and average score of every course                |\n"
+msgstr " |              %d.计算每门课程的总分和平均分                                       |\n"
 
 #: menu.c:22
 #, c-format
-msgid ""
-" |              %d.Calculate total and average score of every "
-"student               |\n"
-msgstr ""
-" |              %d.计算每个学生的总分和平均分 "
-"                                      |\n"
+msgid " |              %d.Calculate total and average score of every student               |\n"
+msgstr " |              %d.计算每个学生的总分和平均分                                       |\n"
 
 #: menu.c:23
 #, c-format
-msgid ""
-" |              %d.Sort in descending order by total score of every "
-"student         |\n"
-msgstr ""
-" |              %d.按每个学生的总分由高到低进行排序（不输出） "
-"                      |\n"
+msgid " |              %d.Sort in descending order by total score of every student         |\n"
+msgstr " |              %d.按每个学生的总分由高到低进行排序（不输出）                       |\n"
 
 #: menu.c:24
 #, c-format
-msgid ""
-" |              %d.Sort in ascending order by total score of every "
-"student          |\n"
-msgstr ""
-" |              %d.按每个学生的总分由低到高进行排序（不输出） "
-"                      |\n"
+msgid " |              %d.Sort in ascending order by total score of every student          |\n"
+msgstr " |              %d.按每个学生的总分由低到高进行排序（不输出）                       |\n"
 
 #: menu.c:25
 #, c-format
-msgid ""
-" |              %d.Sort in ascending order by "
-"number                                |\n"
-msgstr ""
-" |              %d.按学号由小到大进行排序 "
-"                                          |\n"
+msgid " |              %d.Sort in ascending order by number                                |\n"
+msgstr " |              %d.按学号由小到大进行排序                                           |\n"
 
 #: menu.c:26
 #, c-format
-msgid ""
-" |              %d.Sort in dictionary order by "
-"name                                 |\n"
-msgstr ""
-" |              %d.按姓名的字典顺序进行排序（不输出） "
-"                              |\n"
+msgid " |              %d.Sort in dictionary order by name                                 |\n"
+msgstr " |              %d.按姓名的字典顺序进行排序（不输出）                               |\n"
 
 #: menu.c:27
 #, c-format
-msgid ""
-" |              %d.Search by "
-"number                                                 |\n"
-msgstr ""
-" |              %d.按学号查询学生排名及其考试成绩 "
-"                                  |\n"
+msgid " |              %d.Search by number                                                 |\n"
+msgstr " |              %d.按学号查询学生排名及其考试成绩                                   |\n"
 
 #: menu.c:28
 #, c-format
-msgid ""
-" |              %d.Search by "
-"name                                                   |\n"
-msgstr ""
-" |              %d.按姓名查询学生排名及其考试成绩（支持模糊查找） "
-"                  |\n"
+msgid " |              %d.Search by name                                                   |\n"
+msgstr " |              %d.按姓名查询学生排名及其考试成绩（支持模糊查找）                   |\n"
 
 #: menu.c:29
 #, c-format
-msgid ""
-" |              %d.Statistic analysis for every "
-"course                             |\n"
-msgstr ""
-" |              %d.按分数段统计课程 "
-"                                               |\n"
+msgid " |              %d.Statistic analysis for every course                             |\n"
+msgstr " |              %d.按分数段统计课程                                                |\n"
 
 #: menu.c:30
 #, c-format
-msgid ""
-" |              %d.List "
-"record                                                     |\n"
-msgstr ""
-" |              %d.输出学生信息 "
-"                                                   |\n"
+msgid " |              %d.List record                                                     |\n"
+msgstr " |              %d.输出学生信息                                                    |\n"
 
 #: menu.c:31
 #, c-format
-msgid ""
-" |              %d.Write to a "
-"file                                                 |\n"
-msgstr ""
-" |              %d.写入文件 "
-"                                                       |\n"
+msgid " |              %d.Write to a file                                                 |\n"
+msgstr " |              %d.写入文件                                                        |\n"
 
 #: menu.c:32
 #, c-format
-msgid ""
-" |              %d.Read from a "
-"file                                                |\n"
-msgstr ""
-" |              %d.从文件中读出信息 "
-"                                               |\n"
+msgid " |              %d.Read from a file                                                |\n"
+msgstr " |              %d.从文件中读出信息                                                |\n"
 
 #: menu.c:33
 #, c-format
-msgid ""
-" |              %d."
-"Exit                                                             |\n"
-msgstr ""
-" |              %d."
-"退出                                                             |\n"
+msgid " |              %d.Exit                                                             |\n"
+msgstr " |              %d.退出                                                             |\n"
 
 #: menu.c:34
 #, c-format
-msgid ""
-" ==========================  Please enter a number   "
-"===============================\n"
+msgid " ==========================  Please enter a number   ===============================\n"
 msgstr ""
-" ==========================  Please enter a number   "
-"===============================\n"
 
 #: menu.c:40
 #, c-format
@@ -218,10 +152,10 @@ msgstr "初始化完毕。\n"
 
 #: menu.c:101
 #, c-format
-msgid ""
-"You have input a wrong choice, Choice is expected from 0 to 13\n"
+msgid "You have input a wrong choice, Choice is expected from 0 to 13\n"
 "Please input again.\n"
-msgstr "您输入的选项错误（应为0-13）。\n请重新输入\n"
+msgstr "您输入的选项错误（应为0-13）。\n"
+"请重新输入\n"
 
 #: menu.c:144
 #, c-format
@@ -255,10 +189,10 @@ msgstr "程序未退出。\n"
 
 #: menu.c:193
 #, c-format
-msgid ""
-"Please input a location to save.\n"
+msgid "Please input a location to save.\n"
 "The file name should ends with .csv:\n"
-msgstr "请输入存储文件的位置\n文件应以.csv为后缀名\n"
+msgstr "请输入存储文件的位置\n"
+"文件应以.csv为后缀名\n"
 
 #: menu.c:204 menu.c:234
 #, c-format
@@ -272,10 +206,10 @@ msgstr "未能打开文件 %s\n"
 
 #: menu.c:223
 #, c-format
-msgid ""
-"Please input a location to your file.\n"
+msgid "Please input a location to your file.\n"
 "The file name should ends with .csv:\n"
-msgstr "请输入存储文件的位置\n文件应以.csv为后缀名\n"
+msgstr "请输入存储文件的位置\n"
+"文件应以.csv为后缀名\n"
 
 #: menu.c:243
 #, c-format
@@ -315,7 +249,7 @@ msgstr "姓名\t\t平均\t总分\n"
 #: menu.c:293
 #, c-format
 msgid "%s\t\t%.1f\t%d\n"
-msgstr "%s\t\t%.1f\t%d\n"
+msgstr ""
 
 #: menu.c:355
 #, c-format
@@ -329,12 +263,10 @@ msgstr "%s的名次为%d\n"
 
 #: menu.c:365 menu.c:397 menu.c:415
 #, c-format
-msgid ""
-"\tMath: %d\n"
+msgid "\tMath: %d\n"
 "\tChinese: %d\n"
 "\tEnglish: %d\n"
-msgstr ""
-"\t数学: %d\n"
+msgstr "\t数学: %d\n"
 "\t语文: %d\n"
 "\t英语: %d\n"
 
@@ -355,11 +287,9 @@ msgstr "请输入学生姓名（支持模糊查找）\n"
 
 #: menu.c:412
 #, c-format
-msgid ""
-"We couldn't find the exact student.\n"
+msgid "We couldn't find the exact student.\n"
 "Maybe you want %s\n"
-msgstr ""
-"无法找到你想找的学生\n"
+msgstr "无法找到你想找的学生\n"
 "您是想找%s吗？\n"
 
 #: menu.c:426
@@ -375,27 +305,27 @@ msgstr "数学统计\n"
 #: menu.c:452 menu.c:483 menu.c:515
 #, c-format
 msgid "A(90-100): %d\t%f%%\n"
-msgstr "A(90-100): %d\t%f%%\n"
+msgstr ""
 
 #: menu.c:454 menu.c:485 menu.c:517
 #, c-format
 msgid "B(80-89): %d\t%f%%\n"
-msgstr "B(80-89): %d\t%f%%\n"
+msgstr ""
 
 #: menu.c:456 menu.c:487 menu.c:519
 #, c-format
 msgid "C(70-79): %d\t%f%%\n"
-msgstr "C(70-79): %d\t%f%%\n"
+msgstr ""
 
 #: menu.c:458 menu.c:489 menu.c:521
 #, c-format
 msgid "D(60-69): %d\t%f%%\n"
-msgstr "D(60-69): %d\t%f%%\n"
+msgstr ""
 
 #: menu.c:460 menu.c:491 menu.c:523
 #, c-format
 msgid "F(0-59): %d\t%f%%\n"
-msgstr "F(0-59): %d\t%f%%\n"
+msgstr ""
 
 #: menu.c:481
 #, c-format
@@ -416,3 +346,4 @@ msgstr "未知错误\n"
 #, c-format
 msgid "Done. Please press Enter to continue...\n"
 msgstr "完成。请按回车键继续...\n"
+
