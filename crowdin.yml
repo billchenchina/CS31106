@@ -1,0 +1,3 @@
+files:
+  - source: /translate/*.pot
+    translation: /translate/%locale_with_underscore%/LC_MESSAGES/cs31106.po
