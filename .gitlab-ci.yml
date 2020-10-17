@@ -2,7 +2,7 @@ default:
   image: gcc
   before_script:
     - apt update
-    - apt install cmake
+    - apt install -y cmake
 compile:
   stage: build
   script:
